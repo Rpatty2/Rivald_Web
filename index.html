@@ -1,10 +1,80 @@
-<html>
-  <head>
-    <title>Freinds_pages</title>
-  </head>
-  <body>
-    <h1>Paginas GITHUB</h1>
-    <h2>Esta es una pagina creada para desplegar notas de amistad en estas fiestas de fin de año </h2>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Navidad Palmira</title>
+    <style>
+        body {
+            background: linear-gradient(#1a1a1a, #4a4a4a);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Cursive', sans-serif;
+        }
+        .container {
+            text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feliz Navidad, Palmira</h1>
+        <p>Que esta temporada navideña esté llena de amor y alegría.</p>
+    </div>
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake" style="width: 10px; height: 10px; left: 20%; animation-duration: 5s; animation-delay: 0s;"></div>
+        <div class="snowflake" style="width: 8px; height: 8px; left: 50%; animation-duration: 7s; animation-delay: 1s;"></div>
+        <div class="snowflake" style="width: 12px; height: 12px; left: 70%; animation-duration: 6s; animation-delay: 0.5s;"></div>
+        <!-- Añadir más copos de nieve aquí -->
+    </div>
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Entre 2 y 5 segundos
+            document.querySelector('.snowflakes').appendChild(snowflake);
+            setTimeout(() => { snowflake.remove(); }, 5000); // Elimina el copo después de 5 segundos
+        }
+        setInterval(createSnowflake, 500); // Crea un nuevo copo cada 500ms
+    </script>
+</body>
 </html>
 
